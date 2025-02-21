@@ -1,0 +1,38 @@
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#  Library Setup
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#set search_path    "$search_path ./db/tsmc90"
+#set target_library "typical.db"
+#set link_library   "* typical.db"
+#set symbol_library "tsmc090.sdb"
+
+#echo "\n\nSettings:"
+#echo "search_path:       $search_path"
+#echo "link_library:      $link_library"
+#echo "target_library:    $target_library"
+#echo "symbol_library:    $symbol_library"
+
+
+define_design_lib DEFAULT -path ./analyzed
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#  History
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+history keep 200
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#  Aliases
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+alias h history
+alias rc "report_constraint -all_violators"
+alias rt report_timing
+alias ra report_area
+alias page_on {set sh_enable_page_mode true}
+alias page_off {set sh_enable_page_mode false}
+alias fr "remove_design -designs"
+
+echo "\n\nI am ready...\n"

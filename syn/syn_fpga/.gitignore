@@ -1,0 +1,9 @@
+*
+!*/
+!.gitignore
+!Makefile
+!*.md
+!*.tcl
+!*.setup
+!/quartus/*
+!/vivado/*
