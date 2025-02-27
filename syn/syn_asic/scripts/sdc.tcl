@@ -2,16 +2,16 @@
 set RST_NAME rst_n
 set CLK_NAME clk
 
-set CLK_PERIOD_I          2
+set CLK_PERIOD_I          1.5
 set CLK_PERIOD            [expr $CLK_PERIOD_I*0.95]
 set CLK_SKEW              [expr $CLK_PERIOD*0.005]
 set CLK_SOURCE_LATENCY    [expr $CLK_PERIOD*0.01]
 set CLK_NETWORK_LATENCY   [expr $CLK_PERIOD*0.005]
 set CLK_TRAN              [expr $CLK_PERIOD*0.005]
 
-set INPUT_DELAY_MAX       [expr $CLK_PERIOD*0.4]
+set INPUT_DELAY_MAX       [expr $CLK_PERIOD*0.2]
 set INPUT_DELAY_MIN       0
-set OUTPUT_DELAY_MAX      [expr $CLK_PERIOD*0.4]
+set OUTPUT_DELAY_MAX      [expr $CLK_PERIOD*0.2]
 set OUTPUT_DELAY_MIN      0
 
 set MAX_FANOUT            6

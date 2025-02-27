@@ -48,3 +48,9 @@ VCS_PREPROC_DEFINES = \
 ifndef USE_VPD
 VCS_PREPROC_DEFINES += +define+FSDB
 endif
+
+
+## For TSMC28 SRAM verilog Model
+VCS_PREPROC_DEFINES += +define+UNIT_DELAY
+VCS_PREPROC_DEFINES += +define+no_warning
+VCS_PREPROC_DEFINES += +define+TSMC_INITIALIZE_MEM

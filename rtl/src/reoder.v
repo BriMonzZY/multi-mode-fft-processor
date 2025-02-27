@@ -52,45 +52,42 @@ module reorder #(
   wire [DATA_WIDTH-1:0] dout0, dout1, dout2, dout3;
 
   // rambank0_re
-  sram #($clog2(FFT_LENGTH/2), DATA_WIDTH, FFT_LENGTH/2) sram16x256_0 (
+  fft_reoder_sramsp16x256_maskoff sram16x256_0 (
     .clk(clk),
-    .rst_n(rst_n),
-    .cs_n(1'b0),
-    .w_en(w_en),
+    .ce(1'b1),
+    .rw(w_en),
     .addr(addr0),
     .din(din0),
     .dout(dout0)
   );
   // rambank0_im
-  sram #($clog2(FFT_LENGTH/2), DATA_WIDTH, FFT_LENGTH/2) sram16x256_1 (
+  fft_reoder_sramsp16x256_maskoff sram16x256_1 (
     .clk(clk),
-    .rst_n(rst_n),
-    .cs_n(1'b0),
-    .w_en(w_en),
+    .ce(1'b1),
+    .rw(w_en),
     .addr(addr0),
     .din(din1),
     .dout(dout1)
   );
   // rambank1_re
-  sram #($clog2(FFT_LENGTH/2), DATA_WIDTH, FFT_LENGTH/2) sram16x256_2(
+  fft_reoder_sramsp16x256_maskoff sram16x256_2 (
     .clk(clk),
-    .rst_n(rst_n),
-    .cs_n(1'b0),
-    .w_en(w_en),
+    .ce(1'b1),
+    .rw(w_en),
     .addr(addr1),
     .din(din2),
     .dout(dout2)
   );
   // rambank1_im
-  sram #($clog2(FFT_LENGTH/2), DATA_WIDTH, FFT_LENGTH/2) sram16x256_3 (
+  fft_reoder_sramsp16x256_maskoff sram16x256_3 (
     .clk(clk),
-    .rst_n(rst_n),
-    .cs_n(1'b0),
-    .w_en(w_en),
+    .ce(1'b1),
+    .rw(w_en),
     .addr(addr1),
     .din(din3),
     .dout(dout3)
   );
+
 
   wire [TIMES:0] index1_0, index1_1, index1_2, index1_3;
   wire [TIMES:0] index2_0, index2_1, index2_2, index2_3;

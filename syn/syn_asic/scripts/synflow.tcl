@@ -1,8 +1,11 @@
 #--------------------------Specify Libraries--------------------------
-set search_path     "$search_path /tools/PDK/tsmc28nm/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp40p140_180a /home/brimon/workspace/multi-mode-fft-processor/rtl/src/include"
+set search_path     "$search_path\
+                     /tools/PDK/tsmc28nm/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp40p140_180a\
+                     /home/brimon/workspace/multi-mode-fft-processor/rtl/src/include"
 
 ## tsmc28
-set target_library  "tcbn28hpcplusbwp40p140ffg0p88v0c.db"
+set target_library  "tcbn28hpcplusbwp40p140ffg0p88v0c.db\
+                    /home/brimon/workspace/multi-mode-fft-processor/syn/syn_asic/sram/sramsp16x256_tsmc28hpc_ffg0p99v0c.db"
 set link_library    "* tcbn28hpcplusbwp40p140ffg0p88v0c.db"
 ## tsmc90
 # set target_library  "fast.db"
@@ -78,3 +81,4 @@ check_timing > ../syn/log/last_check_timing.log
 write -f verilog -hierarchy -output ../syn/mapped/$TOP_DESIGN.v
 write_sdc ../syn/mapped/$TOP_DESIGN.sdc
 write_sdf -context verilog ../syn/mapped/$TOP_DESIGN.sdf
+write -hierarchy -format ddc -output ../syn/$TOP_DESIGN.ddc
