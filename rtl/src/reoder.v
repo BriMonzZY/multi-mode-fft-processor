@@ -25,8 +25,8 @@ module reorder #(
 
   always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
-      out_counter_reg1 <= 0;
-      out_counter_reg2 <= 0;
+      out_counter_reg1 <= {(TIMES+1){1'b0}};
+      out_counter_reg2 <= {(TIMES+1){1'b0}};
     end
     else begin
       out_counter_reg1 <= out_counter;

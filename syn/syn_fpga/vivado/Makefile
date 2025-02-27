@@ -15,7 +15,7 @@ VIVADO_OPTS ?= -nolog -nojournal -mode batch
 
 
 FPGA_PART ?= xc7z020clg400-1
-MODEL_NAME ?= bsh_32
+MODEL_NAME ?= fft_multimode
 
 RTL ?= v.........
 CONSTRAINTS ?= xdc..........

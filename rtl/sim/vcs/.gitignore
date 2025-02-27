@@ -1,0 +1,15 @@
+*.*
+*
+!*/
+!.gitignore
+!*.md
+!*.[cSh]
+!*.v
+!*.py
+!*.cc
+!*.cpp
+!Makefile
+!*.mk
+!*.txt
+/generated-src/**
+/output/**

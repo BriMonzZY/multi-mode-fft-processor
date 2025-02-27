@@ -1,3 +1,5 @@
+## Refer to Chipyard
+
 #----------------------------------------------------------------------------------------
 # common gcc configuration/optimization
 #----------------------------------------------------------------------------------------
@@ -6,7 +8,7 @@ SIM_OPT_CXXFLAGS := -O3
 MAX_CPU := $(shell nproc)
 
 
-MODEL_NAME ?= bsh_32_tb
+MODEL_NAME ?= fft_tb
 
 TB = $(MODEL_NAME)
 long_name = $(MODEL_NAME)

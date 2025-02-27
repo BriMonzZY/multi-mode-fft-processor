@@ -7,7 +7,7 @@
 ##
 
 ## parameter
-MODEL_NAME?=mul_reg_top
+MODEL_NAME?=fft_multimode
 CLK?=clk
 RST?=rst_n
 

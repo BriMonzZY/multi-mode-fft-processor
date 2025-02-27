@@ -19,7 +19,7 @@ module sram #(
   always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
       for(i = 0; i < DATA_DEPTH; i=i+1) begin
-        mem[i] <= (1'b0 << (DATA_WIDTH-1));
+        mem[i] <= {(DATA_WIDTH){1'b0}};
       end
     end
     else if(w_en == 1'b1 && cs_n == 1'b0) begin
@@ -29,7 +29,7 @@ module sram #(
 
   always @(posedge clk or negedge rst_n) begin
     if(~rst_n) begin
-      dout <= (1'b0 << (DATA_WIDTH-1));
+      dout <= {(DATA_WIDTH){1'b0}};
     end
     else if(cs_n == 1'b0) begin
       dout <= mem[addr];

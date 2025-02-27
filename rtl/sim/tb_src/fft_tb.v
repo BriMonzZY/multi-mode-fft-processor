@@ -53,7 +53,6 @@ module fft_tb();
   initial begin
     `ifdef DEBUG
     `ifdef FSDB
-      $display("\n---use verdi---\n");
       $fsdbDumpfile("fft_tb.fsdb");
       $fsdbDumpvars(0, fft_tb);
       $fsdbDumpMDA(0, fft_tb);
@@ -61,11 +60,11 @@ module fft_tb();
     `endif
 
     // reset and clk
-    rst_n <= 0;
-    inv <= 0;
+    rst_n <= 1'b0;
+    inv <= 1'b0;
     np <= 2'b11;
-    stb <= 0;
-    sop_in <= 0;
+    stb <= 1'b0;
+    sop_in <= 1'b0;
     x_re <= 16'h0;
     x_im <= 16'h0;
 
@@ -73,18 +72,18 @@ module fft_tb();
     rst_n <= 1;
     repeat (3) @(posedge clk);
 
-    stb <= 1;
-    sop_in <= 1;
+    stb <= 1'b1;
+    sop_in <= 1'b1;
     x_re <= fft_input_re[0];
     x_im <= fft_input_im[0];
     @(posedge clk);
-    sop_in <= 0;
+    sop_in <= 1'b0;
     for(i=1; i<N; i=i+1) begin
       x_re <= $signed(fft_input_re[i]);
       x_im <= $signed(fft_input_im[i]);
       @(posedge clk);
     end
-    stb <= 0;
+    stb <= 1'b0;
 
     repeat ((N*3/2-1)+N) @(posedge clk);
 

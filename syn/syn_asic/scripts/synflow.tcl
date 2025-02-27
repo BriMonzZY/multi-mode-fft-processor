@@ -1,5 +1,5 @@
 #--------------------------Specify Libraries--------------------------
-set search_path     "$search_path /home/yian/tsmc28nm/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp40p140_180a /home/yian/workspace/homework3/ic_project_template/rtl/src/include"
+set search_path     "$search_path /tools/PDK/tsmc28nm/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp40p140_180a /home/brimon/workspace/multi-mode-fft-processor/rtl/src/include"
 
 ## tsmc28
 set target_library  "tcbn28hpcplusbwp40p140ffg0p88v0c.db"

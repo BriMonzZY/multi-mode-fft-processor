@@ -14,6 +14,15 @@ module complex_mult #(
   output signed [15:0] res_re,
   output signed [15:0] res_im
 );
+
+  function signed [15:0] saturate(input signed [18:0] value);
+  begin
+    if (value > 32767)        saturate = 16'h7FFF;
+    else if (value < -32768)  saturate = 16'h8000;
+    else                      saturate = value[15:0];
+  end
+  endfunction
+
   generate
   if(useGauss) begin
     // k1 = x1_re * (x0_re + x0_im);
@@ -40,15 +49,17 @@ module complex_mult #(
     // res_re = x0_re * x1_re - x0_im * x1_im;
     // res_im = x0_re * x1_im + x0_im * x1_re;
     // Multiply components (results are in Q30 format)
-    wire signed [31:0] mul_re_re, mul_im_im, mul_re_im, mul_im_re;
-    assign mul_re_re = x0_re * x1_re;
-    assign mul_im_im = x0_im * x1_im;
-    assign mul_re_im = x0_re * x1_im;
-    assign mul_im_re = x0_im * x1_re;
+    wire signed [31:0] mul_re_re = x0_re * x1_re;
+    wire signed [31:0] mul_im_im = x0_im * x1_im;
+    wire signed [31:0] mul_re_im = x0_re * x1_im;
+    wire signed [31:0] mul_im_re = x0_im * x1_re;
+
+    wire signed [32:0] sub_re = {mul_re_re[31], mul_re_re} - {mul_im_im[31], mul_im_im};
+    wire signed [32:0] add_im = {mul_re_im[31], mul_re_im} + {mul_im_re[31], mul_im_re};
 
     // Adjust back to Q15 format
-    assign res_re = (mul_re_re - mul_im_im) >>> 15;
-    assign res_im = (mul_re_im + mul_im_re) >>> 15;
+    assign res_re = saturate(sub_re >>> 15);
+    assign res_im = saturate(add_im >>> 15);
 
   end
   endgenerate
