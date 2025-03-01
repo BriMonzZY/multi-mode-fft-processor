@@ -10,7 +10,8 @@ def plot_re_im(re_data, im_data):
     plt.figure(figsize=(12, 5))
 
     plt.subplot(1, 2, 1)
-    plt.plot(range(len(re_data)), re_data, marker='o', color='blue', linestyle='-', label='Real Part')
+    # plt.plot(range(len(re_data)), re_data, marker='o', color='blue', linestyle='-', label='Real Part')
+    plt.plot(range(len(re_data)), re_data, color='blue', linestyle='-', label='Real Part')
     plt.xlabel('Index')
     plt.ylabel('Real')
     plt.title('FFT Real output')
@@ -18,7 +19,8 @@ def plot_re_im(re_data, im_data):
     plt.legend()
 
     plt.subplot(1, 2, 2)
-    plt.plot(range(len(im_data)), im_data, marker='o', color='red', linestyle='-', label='Imaginary Part')
+    # plt.plot(range(len(im_data)), im_data, marker='o', color='red', linestyle='-', label='Imaginary Part')
+    plt.plot(range(len(im_data)), im_data, color='red', linestyle='-', label='Imaginary Part')
     plt.xlabel('Index')
     plt.ylabel('Imag')
     plt.title('FFT Imag output')
