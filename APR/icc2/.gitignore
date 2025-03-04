@@ -1,0 +1,11 @@
+*.*
+*
+!*/
+!.gitignore
+!*.md
+!*.v
+!*.py
+!Makefile
+!*.mk
+!*.tcl
+!/scripts/*

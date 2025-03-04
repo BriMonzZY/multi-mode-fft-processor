@@ -1,0 +1,15 @@
+*.*
+*
+!*/
+!.gitignore
+!*.md
+!*.[cSh]
+!*.v
+!*.py
+!*.cc
+!*.cpp
+!Makefile
+!*.mk
+!/innovus/*
+!/icc2/*
+!*.txt
