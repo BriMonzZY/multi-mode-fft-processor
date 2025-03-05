@@ -1,18 +1,26 @@
 #--------------------------Specify Libraries--------------------------
 set search_path     "$search_path\
                      /tools/PDK/tsmc28nm/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn28hpcplusbwp40p140_180a\
+                     /tools/PDK/tsmc40nm/TSMCHOME/digital/Front_End/timing_power_noise/NLDM/tcbn40lpbwp_200a\
                      /home/brimon/workspace/multi-mode-fft-processor/rtl/src/include"
 
 ## tsmc28
 set target_library  "tcbn28hpcplusbwp40p140ffg0p88v0c.db\
                     /home/brimon/workspace/multi-mode-fft-processor/syn/syn_asic/sram/sramsp16x256_tsmc28hpc_ffg0p99v0c.db"
 set link_library    "* tcbn28hpcplusbwp40p140ffg0p88v0c.db"
+
+## tsmc40
+# set target_library  "tcbn40lpbwpbc.db\
+#                     "
+# set link_library    "* tcbn40lpbwpbc.db"
+
 ## tsmc90
 # set target_library  "fast.db"
 # set link_library    "* fast.db"
 ## smic40
 # set target_library "scc40nll_hs_rvt_ff_v1p21_-40c_basic.db"
 # set link_library    "* scc40nll_hs_rvt_ff_v1p21_-40c_basic.db"
+
 ## for DesignWare use
 # set synthetic_library "dw_foundation.sldb"
 # set link_library    "* fast.db $synthetic_library"
@@ -81,4 +89,4 @@ check_timing > ../syn/log/last_check_timing.log
 write -f verilog -hierarchy -output ../syn/mapped/$TOP_DESIGN.v
 write_sdc ../syn/mapped/$TOP_DESIGN.sdc
 write_sdf -context verilog ../syn/mapped/$TOP_DESIGN.sdf
-write -hierarchy -format ddc -output ../syn/$TOP_DESIGN.ddc
+write -hierarchy -format ddc -output ../syn/mapped/$TOP_DESIGN.ddc

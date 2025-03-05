@@ -3,14 +3,6 @@
 !*/
 !.gitignore
 !*.md
-!*.[cSh]
-!*.v
-!*.py
-!*.cc
-!*.cpp
 !Makefile
 !*.mk
-!*.txt
-!/reports/*
-!/scripts/**
 !/work/*

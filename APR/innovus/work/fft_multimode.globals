@@ -1,0 +1,12 @@
+set defHierChar {/}
+set locv_inter_clock_use_worst_derate false
+set init_oa_search_lib {}
+set lsgOCPGainMult 1.000000
+set init_verilog {../fft_multimode.v}
+set init_pwr_net {VDD}
+set init_lef_file {/tools/PDK/tsmc28nm/tn28clpr002e1_1_5a/N28_PRTF_Cad_v1d5a/PR_tech/Cadence/LefHeader/HVH/tsmcn28_10lm7X2RRDL.tlef /tools/PDK/tsmc28nm/TSMCHOME/digital/Back_End/lef/tcbn28hpcplusbwp40p140_110a/lef/tcbn28hpcplusbwp40p140.lef}
+set init_top_cell {fft_multimode}
+set fpIsMaxIoHeight 0
+set init_gnd_net {VSS}
+set timing_case_analysis_for_icg_propagation false
+
