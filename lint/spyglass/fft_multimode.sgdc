@@ -1,0 +1,2 @@
+current_design fft_multimode
+sdc_data -file ../../syn/syn_asic/syn/mapped/fft_multimode.sdc

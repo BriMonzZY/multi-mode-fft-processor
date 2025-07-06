@@ -5,4 +5,7 @@
 !*.md
 !Makefile
 !*.tcl
-spyglass-1/
+!*.sgdc
+sg_lint/
+reports/
+waiver/
