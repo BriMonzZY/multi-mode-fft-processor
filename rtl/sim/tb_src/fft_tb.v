@@ -59,6 +59,10 @@ module fft_tb();
     `endif
     `endif
 
+    `ifdef POST_SIM
+      $sdf_annotate("**/multi-mode-fft-processor-sram/pex_sta/work_pt/results/fft_multimode.sdf", fft_tb.u_fft_multimode,,"sdf.log");
+    `endif
+
     // reset and clk
     rst_n <= 1'b0;
     inv <= 1'b0;

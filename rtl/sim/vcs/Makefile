@@ -79,8 +79,8 @@ run: $(sim)
 rundebug: $(sim_debug)
 	cd $(output_dir) && ./$(sim_prefix)-$(long_name)-debug
 
-wave: $(sim_common_files)
-	cd $(output_dir) && ./$(sim_prefix)-$(long_name)-debug && verdi +v2k -sv -f $(sim_common_files) -nologo -ssf $(TB).fsdb
+wave:
+	cd $(output_dir) && ./$(sim_prefix)-$(long_name)-debug && verdi +v2k -sv -nologo -ssf $(TB).fsdb -dbdir $(sim_prefix)-$(long_name)-debug.daidir
 
 #########################################################################################
 # general cleanup rules

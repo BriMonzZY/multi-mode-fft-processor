@@ -13,7 +13,7 @@ module fft_reoder_sramsp16x256_maskoff (
 
 `ifdef TSMC_N28HPC
 
-  sramsp16x256_tsmc28hpc sramsp16x256_maskoff (
+  rf1p16x256_tsmc28hpcp rf1p16x256_tsmc28hpcp_u (
     .CLK  (clk  ),
     .CEB  (~ce  ),
     .WEB  (~rw  ),

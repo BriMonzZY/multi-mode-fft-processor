@@ -27,7 +27,7 @@ VCS_NONCC_OPTS = \
 	+lint=all,noVCDE,noONGS,noUI \
 	-error=PCWM-L \
 	-error=noZMMCM \
-	-timescale=1ns/10ps \
+	-timescale=1ns/1ps \
 	-quiet \
 	-q \
 	+rad \
@@ -40,6 +40,16 @@ VCS_NONCC_OPTS = \
 	-top $(TB) \
 	+incdir+$(base_dir)/src/include
 # -P $(NOVAS_PATH)/novas.tab $(NOVAS_PATH)/pli.a \
+
+ifeq ($(POST_SIM), 1)
+VCS_NONCC_OPTS += \
+	+define+POST_SIM \
+	-sdfverbose \
+	+maxdelays \
+	-negdelay \
+	+neg_tchk
+endif
+
 
 
 VCS_PREPROC_DEFINES = \

@@ -1,8 +1,0 @@
-*.*
-*
-!*/
-!.gitignore
-!*.md
-!Makefile
-!*.mk
-!/work/*

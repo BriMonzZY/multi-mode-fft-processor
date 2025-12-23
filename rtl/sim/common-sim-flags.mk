@@ -10,6 +10,8 @@ MAX_CPU := $(shell nproc)
 
 MODEL_NAME ?= fft_tb
 
+POST_SIM ?= 0
+
 TB = $(MODEL_NAME)
 long_name = $(MODEL_NAME)
 
@@ -54,5 +56,21 @@ $(sim_files): | $(build_dir)
 $(ALL_MODS_FILELIST): | $(build_dir)
 	touch $@ && find $(base_dir)/src -name "*.v" -o -name "*.h" -o -name "*.vh" -o -name "*.svh" >> $@
 
+
+
+ifeq ($(POST_SIM), 0)
+
 $(sim_common_files): $(sim_files) $(ALL_MODS_FILELIST)
 	sort -u $(sim_files) $(ALL_MODS_FILELIST) | grep -v '.*\.\(svh\|h\)$$' >> $@
+
+else
+
+$(sim_common_files): $(sim_files)
+	touch $@
+	sort -u $(sim_files) | grep -v '.*\.\(svh\|h\)$$' >> $@
+	echo "**/mem/rf1p16x256_tsmc28hpcp/VERILOG/rf1p16x256_tsmc28hpcp_ssg0p9v0c.v" >> $@
+	echo "**/TSMCHOME/digital/Front_End/verilog/tcbn28hpcplusbwp40p140_110a/tcbn28hpcplusbwp40p140.v" >> $@
+	echo "**/TSMCHOME/digital/Front_End/verilog/tcbn28hpcplusbwp40p140hvt_110a/tcbn28hpcplusbwp40p140hvt.v" >> $@
+	echo "**/pnr/export2signoff/fft_multimode.routed.v" >> $@
+
+endif
